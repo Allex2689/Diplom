@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@font-face {
+    font-family: "Ferry";
+    font-style: normal;
+    font-weight: 900;
+    src: local("Ferry"),
+             url('../Login/Ferry-Black.woff') format("woff");
+  }
+
+
+
+.title1 h1 {
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 40px;
+   margin-bottom: 36px;
+}
+.title1 p {
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 20px;
+   margin-bottom: 127px;
+}
+.title1 {
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+}
+
+.title1 {
+   padding: 0 104px 0 60px;
+}
+
+.summary h2 {
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 30px;
+}
+.underTitle {
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 18px;
+   color: #949494;
+}
+.summary  {
+  
+  padding: 0 43px 0 51px;
+}
+
+
+.summaryContainer {
+   min-height: 158px;
+   display: flex;
+   margin-bottom: 107px;
+}
+
+.summaryInfo {
+   display: grid;
+   grid-template-columns: repeat(9, 140px);
+   border: 2px solid #029491;
+   border-radius: 10px;
+}
+
+.summaryInfoTitle{ 
+   background-color: #029491;
+   color: white;
+   text-align: center;
+   border-radius: 7px 0 0 7px;
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 20px;  
+}
+.summaryInfoBlock {
+   text-align: center;
+   border-right: 2px solid #949494;
+}
+.summaryInfoBlock p {
+   margin-bottom: 23px;
+}
+
+h3 {
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 30px;
+   margin-left: 60px;
+}
+
+.newsContainer {
+   padding: 58px 60px 38px 60px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   min-height: 700px;
+   gap: 38px;
+}
+
+.topInfo {
+  display: flex;
+  align-items: center;
+}
+.topInfo a{
+  margin-left: 14px;
+  font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 16px;
+   color: grey;
+}
+
+.news {
+   box-shadow: 0px 0px 20px 0px #00000033;
+   padding: 19px 30px 35px;
+}
+.news h4{
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 26px;
+   margin: 24px 0 14px 0;
+}
+
+.underTitleText {
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 12px;
+   background-color: orange;
+   border-radius: 5px;
+   display: inline-block;
+   padding: 4px 11px 3px 14px;
+   color: black !important;
+}
+
+.news p{
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 16px;
+   color: grey;
+}
+
+.news button {
+   background-color: #7CE3E1;
+   border-radius: 5px;
+   border: none;
+   padding: 14px 30px;
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 16px;
+}
+
+.buttonWithText {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 32px;
+}
+.buttonWithText p {
+  position: relative;
+  top: 20px;
+}
+
+.bottomButton {
+   color: white;
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 22px;
+   border: none;
+   border-radius: 5px;
+   background-color: #5970FF;
+   padding: 16px 50px;
+   margin-bottom: 109px;
+   margin-top: 38px;
+   position: relative;
+   left: 50%;
+   transform: translate(-50%, 0);
+   
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+ 
+   .main {
+      display: flex;
+      flex-direction: column;
+      
+   }
+   .title1 {
+      padding: 0 0 0 14px;
+      display: flex;
+      flex-direction: column;
+  }
+   .title1 img{
+      width: 93%;
+  }
+  
+  .title1 p {
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 20px;
+   margin-bottom: 21px;
+}
+.title1 h1 {
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 28px;
+   margin-bottom: 21px;
+}
+.summary {
+   padding: 0 14px 0 26px;
+} 
+.summary h2{
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 28px;
+} 
+.summaryContainer {
+   min-height: 158px;
+   display: flex;
+   margin-bottom: 107px;
+}
+
+.summaryInfo {
+   display: grid;
+   grid-template-columns: repeat(9, 140px);
+   border: 2px solid #029491;
+   border-radius: 10px;
+}
+
+.summaryInfoTitle{ 
+   background-color: #029491;
+   color: white;
+   text-align: center;
+   border-radius: 7px 0 0 7px;
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 20px;  
+}
+.summaryInfoBlock {
+   text-align: center;
+   border-right: 2px solid #949494;
+}
+.summaryInfoBlock p {
+   margin-bottom: 23px;
+}
+}
