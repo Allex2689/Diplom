@@ -1,5 +1,5 @@
 import "./search.css"
-import SearchForm from "./Components/SearchForm";
+import SearchForm from "./Components/SearchForm/SearchForm";
 
 
 const Search = () => {

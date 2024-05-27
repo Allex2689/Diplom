@@ -6,6 +6,24 @@
     src: local("Ferry"),
              url('./Ferry-Black.woff') format("woff");
   }
+  .loginError { 
+    color: red !important; 
+  }
+
+  .errorLogin1 {
+    border-color: red;
+    min-width: 380px;
+    height: 43px;
+    border-radius: 5px;
+    margin-bottom: 35px;
+  }
+  .errorLogin2 {
+    border-color: red;
+    min-width: 380px;
+    height: 43px;
+    border-radius: 5px;
+    margin-bottom: 35px;
+  }
 
 .loginForm {
     height: 523px;

@@ -10,7 +10,6 @@ const LoginForm = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
     const navigate = useNavigate();
     const { isAuth, setIsAuth } = useContext(UserContext);
 
@@ -38,7 +37,7 @@ const LoginForm = () => {
                 localStorage.setItem('accessToken', accessToken);
                 localStorage.setItem('expire', expire);
                 setIsAuth(true);
-                navigate("/search")
+                navigate("/search");
             }
         })
         .catch((err) => console.error(err));
@@ -68,10 +67,10 @@ const LoginForm = () => {
                 </div>
                 <div className="formInfo">
                     <span>Логин или номер телефона:</span>
-                    <input type="text" className="loginInput" value={login} onChange={handleChangeLogin}/>
+                    <input type="text" className={error ? 'errorLogin1' : 'loginInput'} value={login} onChange={handleChangeLogin}/>
                     <span>Пароль:</span>
-                    <input type="password" className={`loginInput ${error && 'error'}`} value={password} onChange={handleChangePassword}/>
-                    {error && <span style={{ color: 'red' }}>{error}</span>}
+                    <input type="password" className={error ? 'errorLogin2' : 'loginInput'} value={password} onChange={handleChangePassword}/>
+                    {error && <span className="loginError">{error}</span>}
                     <button className="formButton" type="submit">ВОЙТИ</button>
                     <span className="recover">Восстановить пароль</span>
                     <span>Войти через:</span>
