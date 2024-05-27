@@ -1,11 +1,13 @@
 import "../SearchResult/searchResult.css";
 import Histograms from "./Components/Histograms";
 import AllNews from "./Components/News/News";
-
-
-
+import {useLocation} from "react-router-dom";
 
 const SearchResult = () => {
+    const { state } = useLocation();
+
+    console.log(state);
+
     return (
         <main className="main">
         <div className="title1">

@@ -1,33 +1,23 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import React, {ChangeEvent, FormEvent, InputHTMLAttributes, useState} from "react";
 import {SIGNS, TONALITIES} from './const';
 import {Errors} from './types';
+import DatePicker from "react-datepicker";
+import cn from 'classnames';
+import "react-datepicker/dist/react-datepicker.css";
+import { validateDocs, validateInn, validateDates } from "./validation";
+import {useNavigate} from "react-router-dom";
 
-const NUMBERS_REGEX = /^\d+$/;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-const validateForm = (inn: string) => {
-    const errors: Errors = {};
-
-    if (inn.length !== 10 || !NUMBERS_REGEX.test(inn) || !inn.length) {
-        errors.inn = 'Введите корректные данные';
-    }
-    if (inn.length === 0) {
-        errors.inn = 'Обязательное поле';
-    }
-    return errors;
-}
-
-const validateForm2 = (docs: string) => {
-    const errors: Errors = {};
-    const docsNumber = parseInt(docs, 10);
-
-    if (isNaN(docsNumber) || docsNumber < 1 || docsNumber > 1000) {
-        errors.docs = 'Введите значение от 1 до 1000';
-    }
-    if (docs.length === 0) {
-        errors.docs = 'Обязательное поле';
-    }
-
-    return errors;
+const Input = (props: InputProps) => {
+    const { className, ...restProps } = props;
+    return (
+        <input
+            {...restProps}
+            type="text"
+            className={cn('inputDate', className)}
+        />
+    );
 }
 
 const SearchForm = () => {
@@ -35,11 +25,15 @@ const SearchForm = () => {
     const [docs, setDocs] = useState('');
     const [tonality, setTonality] = useState(TONALITIES[0].code);
     const [errors, setErrors] = useState<Errors>({});
+    const [signs, setSigns] = useState(SIGNS);
+    const [startDate, setStartDate] = useState<Date | null>(null);
+    const [endDate, setEndDate] = useState<Date | null>(null);
 
+    const navigate = useNavigate();
 
     const handleChangeInn = (event: ChangeEvent<HTMLInputElement>) => {
         setInn(event.target.value);
-       
+
         if (errors.inn) {
             setErrors(prevErrors => ({
                 ...prevErrors,
@@ -47,10 +41,10 @@ const SearchForm = () => {
             }));
         }
     }
-    
+
     const handleChangeTonality = (event: ChangeEvent<HTMLSelectElement>) => {
         setTonality(event.target.value);
-       
+
         if (errors.tonality) {
             setErrors(prevErrors => ({
                 ...prevErrors,
@@ -58,10 +52,10 @@ const SearchForm = () => {
             }));
         }
     }
-    
+
     const handleChangeDocs = (event: ChangeEvent<HTMLInputElement>) => {
         setDocs(event.target.value);
-       
+
         if (errors.docs) {
             setErrors(prevErrors => ({
                 ...prevErrors,
@@ -69,15 +63,48 @@ const SearchForm = () => {
             }));
         }
     }
+
+    const handleChangeSignValue = (event: ChangeEvent<HTMLInputElement>) => {
+        const newSigns = signs.map((signItem) => {
+            if (signItem.code === event.target.value) {
+                return {
+                    ...signItem,
+                    value: !signItem.value,
+                }
+            }
+
+            return signItem;
+        });
+
+        setSigns(newSigns);
+    }
+
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         const formErrors = {
-            ...validateForm(inn),
-            ...validateForm2(docs),
+            ...validateInn(inn),
+            ...validateDocs(docs),
+            ...validateDates(startDate, endDate),
         };
-    
+
         if (Object.keys(formErrors).length) {
             setErrors(formErrors);
+        } else {
+            const signParams: Record<string, boolean> = {};
+            signs.forEach((sign) => {
+                signParams[sign.code] = sign.value
+            })
+
+            navigate('/searchResult', {
+                state: {
+                    inn: Number(inn),
+                    tonality,
+                    limit: Number(docs),
+                    startDate,
+                    endDate,
+                    ...signParams,
+                }
+            })
         }
     };
 
@@ -98,15 +125,29 @@ const SearchForm = () => {
                 {errors.docs && <span className="error1">{errors.docs}</span>}
                 <h2>Диапазон поиска</h2>
                 <div className="twoInput">
-                    <input type="text" className="startDate" placeholder="Дата начала" />
-                    <input type="text" className="endDate" placeholder="Дата конца" />
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        placeholderText="Дата начала"
+                        customInput={<Input className="startDate"/>}
+                        dateFormat="dd.MM.yyyy"
+                    />
+
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(date) => setEndDate(date)}
+                        placeholderText="Дата конца"
+                        customInput={<Input className="startDate"/>}
+                        dateFormat="dd.MM.yyyy"
+                    />
                 </div>
+                {errors.dates && <span className="error1">{errors.dates}</span>}
             </div>
             <div className="endForm">
                 <div className="labelList">
-                    {SIGNS.map((item) => (
+                    {signs.map((item) => (
                         <label key={item.code}>
-                            <input type="checkbox" value={item.code} />
+                            <input type="checkbox" value={item.code} onChange={handleChangeSignValue}/>
                             {item.title}
                         </label>
                     ))}
