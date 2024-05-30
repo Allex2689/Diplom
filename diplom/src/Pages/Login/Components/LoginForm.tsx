@@ -6,11 +6,11 @@ import { useContext } from 'react';
 
 
 const LoginForm = () => {
-
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
+
     const { isAuth, setIsAuth } = useContext(UserContext);
 
     const sendData = (event: FormEvent) => {

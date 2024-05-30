@@ -18,9 +18,9 @@ const HomePage = () => {
                 <h1>Почему именно мы</h1>
                 <img src="./arrow1.svg" alt="arrow1" className="arrow1" />
                 <img src="./arrow2.svg" alt="arrow2" className="arrow2" />
-                <div className="infoCards">
+                {/*<div className="infoCards">*/}
                     <Cards />
-                </div>
+                {/*</div>*/}
             </div>
             <img src="./HomeImg.svg" alt="HomeImg" className="HomeImg" />
             <h2>наши тарифы</h2>

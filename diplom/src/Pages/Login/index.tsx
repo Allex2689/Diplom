@@ -11,8 +11,8 @@ export const LoginPage = () => {
             </div>
             <LoginForm/>
             <img src="./key.svg" alt="Key" className="key2"/>
-            </div>
-      
+        </div>
+
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route, useNavigate} from "react-router-dom";
 import SearchResult from './Pages/SearchResult';
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -7,8 +7,8 @@ import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Login";
 import Search from "./Pages/Search";
 import { UserContext } from "./contexts/UserContext";
-import UserInfo from './Components/Header/UserInfo';
 import './index.css';
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
 
 export default function App() {
@@ -41,15 +41,22 @@ export default function App() {
       }
   }, [isAuth]);
 
-
   return (
-          <UserContext.Provider value={{user, isAuth, setIsAuth}}>
+          <UserContext.Provider value={{user, isAuth, setUser, setIsAuth}}>
               <Header/>
               <Routes>
                   <Route path="/" element={<HomePage />} />
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/search" element={<Search />} />
-                  <Route path="/searchResult" element={<SearchResult />} />
+                  <Route path="/login" element={<LoginPage/>} />
+                  <Route path="/search" element={
+                      <ProtectedRoute>
+                          <Search />
+                      </ProtectedRoute>
+                  } />
+                  <Route path="/searchResult" element={
+                      <ProtectedRoute>
+                        <SearchResult />
+                      </ProtectedRoute>
+                  } />
               </Routes>
               <Footer/>
           </UserContext.Provider>

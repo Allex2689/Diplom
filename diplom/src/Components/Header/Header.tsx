@@ -6,7 +6,7 @@ import {Link, useNavigate} from "react-router-dom";
 
 const Header = () => {
   const { user, isAuth } = useContext(UserContext);
-  console.log(user)
+
   const navigate = useNavigate();
   const goToLogin = () => {
     navigate('/login');

@@ -57,11 +57,10 @@ function Cards() {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      
     >
       {rates.map((rate) => (
-        <SwiperSlide>
-          <Card rate={rate} key={rate.code}/>
+        <SwiperSlide key={rate.code}>
+          <Card rate={rate}/>
         </SwiperSlide>
       ))}
     </Swiper>
