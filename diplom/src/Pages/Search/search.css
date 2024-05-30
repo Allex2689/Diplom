@@ -181,6 +181,11 @@
     font-size: 14px;
     margin-left: 112px;
   }
+  .disabledButton {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
 
   @media (min-width: 320px) and (max-width: 480px) {
     .error1 {

@@ -51,7 +51,7 @@ const transformData = (data: Histogram[]) => {
             },
             body: JSON.stringify({
               issueDateInterval: {
-              startDate: "2023-09-01T00:00:00+03:00",
+              startDate: "2024-04-01T00:00:00+03:00",
               endDate: "2024-04-13T23:59:59+03:00"
               },
               searchContext: {

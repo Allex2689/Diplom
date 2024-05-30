@@ -79,6 +79,7 @@
         border-radius: 10px;
         padding: 30px 0 0 20px;
         box-shadow: 0px 0px 20px 0px #00000033;
+        
       }
 
       .HomeImg {
@@ -220,11 +221,7 @@
       }
       
       
-      .list p::before {
-        content: url('/public/check.svg');
-        margin-right: 8px;
-      }
-
+   
       .tariff button {
         min-width: 355px;
         min-height: 60px;
@@ -238,7 +235,6 @@
         font-size: 20px;
       }
      
-      
       @media (min-width: 320px) and (max-width: 479px) {
         .homeContainer {
           max-width: 479px;
@@ -310,9 +306,10 @@
             }
             .tariffs {
               display: grid;
-              grid-template-columns: 335px 335px 335px;
-              height: 512px;
-              margin: 70px 0 118px 14px;
+              grid-template-columns: none;
+              grid-template-rows: 512px 512px 512px;
+              width: 90%;
+              margin: 37px 0 43px 14px;
             }
       
             .tariff {

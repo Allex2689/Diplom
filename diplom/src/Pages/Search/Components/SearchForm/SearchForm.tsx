@@ -1,11 +1,11 @@
-import React, {ChangeEvent, FormEvent, InputHTMLAttributes, useState} from "react";
-import {SIGNS, TONALITIES} from './const';
-import {Errors} from './types';
+import React, { ChangeEvent, FormEvent, InputHTMLAttributes, useState } from "react";
+import { SIGNS, TONALITIES } from './const';
+import { Errors } from './types';
 import DatePicker from "react-datepicker";
 import cn from 'classnames';
 import "react-datepicker/dist/react-datepicker.css";
 import { validateDocs, validateInn, validateDates } from "./validation";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
@@ -79,6 +79,28 @@ const SearchForm = () => {
         setSigns(newSigns);
     }
 
+    const handleStartDateChange = (date: Date | null) => {
+        setStartDate(date);
+
+        if (errors.dates) {
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                dates: undefined,
+            }));
+        }
+    }
+
+    const handleEndDateChange = (date: Date | null) => {
+        setEndDate(date);
+
+        if (errors.dates) {
+            setErrors(prevErrors => ({
+                ...prevErrors,
+                dates: undefined,
+            }));
+        }
+    }
+
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
         const formErrors = {
@@ -127,7 +149,7 @@ const SearchForm = () => {
                 <div className="twoInput">
                     <DatePicker
                         selected={startDate}
-                        onChange={(date) => setStartDate(date)}
+                        onChange={handleStartDateChange}
                         placeholderText="Дата начала"
                         customInput={<Input className="startDate"/>}
                         dateFormat="dd.MM.yyyy"
@@ -135,7 +157,7 @@ const SearchForm = () => {
 
                     <DatePicker
                         selected={endDate}
-                        onChange={(date) => setEndDate(date)}
+                        onChange={handleEndDateChange}
                         placeholderText="Дата конца"
                         customInput={<Input className="startDate"/>}
                         dateFormat="dd.MM.yyyy"

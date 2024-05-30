@@ -15,7 +15,7 @@
             </div>
             <h4>{props.title}</h4>
             <p className='underTitleText'>{props.techNews}</p>
-            <img src={props.img.src} alt={props.img.alt}/>
+            <img src={props.img.src} alt={props.img.alt} className='newsImg'/>
             <p>{props.text1}</p>
             <p>{props.text2}</p>
             <div className='buttonWithText'>
