@@ -5,29 +5,29 @@
     font-weight: 900;
     src: local("Ferry"),
              url('../Login/Ferry-Black.woff') format("woff");
-  }
+}
 
 
- .homeTitle {
+.homeTitle {
     display: grid;
     grid-template-columns: 730px 1fr;
     gap: 100px;
     margin-left: 60px;
     margin-bottom: 110px;
-  }
+}
 
-  .homeTitle h1 {
+.homeTitle h1 {
     font-family: "Ferry", sans-serif;
     font-size: 60px;
-  }
+}
 
-  .homeTitle p {
+.homeTitle p {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 20px;
-  }
+}
 
-  .homeTitle button {
+.homeTitle button {
     width: 46%;
     height: 10%;
     margin-top: 30px;
@@ -39,216 +39,220 @@
     font-weight: 500;
     font-size: 22px;
     cursor: pointer;
-    }
+}
 
 
-      .homeInfo h1 {
-        font-family: "Ferry", sans-serif;
-        font-size: 45px;
-        margin-left: 60px;
-       
-      }
+.homeInfo h1 {
+  font-family: "Ferry", sans-serif;
+  font-size: 45px;
+  margin-left: 60px;
+}
 
-     
-      .arrow1 {
+
+.arrow1 {
         position: absolute;
         top: 65%;
         right: 98%;
         cursor: pointer;
-      }
-      .arrow2 {
+}
+
+.arrow2 {
         position: absolute;
         top: 65%;
         left: 90%;
         cursor: pointer;
-      }
+}
 
-      .infoCards {
-        display: grid;
-        grid-template-columns: 400px 400px 400px;
-        height: 225px;
-        gap: 30px;
-        margin-left: 40px;
-        margin-top: 80px;
-        position: relative;
-      }
-
-      .card {
+.card {
         border-radius: 10px;
         padding: 30px 0 0 20px;
         box-shadow: 0px 0px 20px 0px #00000033;
         min-height: 225px;
-        width: 400px;
-      }
+        width: calc(100% - 40px);
+}
 
-      .HomeImg {
+.HomeImg {
         margin-left: 51px;
         margin-top: 70px;
-      }
+}
 
-      .homeContainer h2{
+.homeContainer h2 {
         font-family: "Ferry", sans-serif;
         font-size: 45px;
         margin: 107px 0 0 100px;
-      }
+}
 
-      .tariffs {
+.tariffs {
         display: grid;
         grid-template-columns: 415px 415px 415px;
         gap: 40px;
         margin: 70px 0 118px 100px;
-      }
+}
 
-      .tariff {
+.tariff {
         border-radius: 10px;
-        box-shadow: 0px 0px 20px 0px #00000033; 
+        box-shadow: 0px 0px 20px 0px #00000033;
         position: relative;
-      }
+}
 
-      .tariffTitle h3 {
+.tariffTitle h3 {
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 30px;
         margin-bottom: 0;
         margin-top: 0;
         margin-left: 0;
-      }
+}
 
-      .tariffTitle {
+.tariffTitle {
         background-color: #FFB64F;
         border-radius: 10px 10px 0 0;
         position: relative;
         padding: 30px 0 0 30px;
-      }
-      .tariffTitle-1 {
+}
+
+.tariffTitle-1 {
         background-color: #7CE3E1;
         border-radius: 10px 10px 0 0;
         position: relative;
         padding: 30px 0 0 30px;
         height: 120px;
-      }
-      .tariffTitle-2 {
+}
+
+.tariffTitle-2 {
         background-color: #000000;
         border-radius: 10px 10px 0 0;
         position: relative;
         padding: 30px 0 0 30px;
         height: 120px;
         color: white;
-      }
-      .tariffTitle-1 p{
+}
+
+.tariffTitle-1 p{
         font-family: "Inter", sans-serif;
         font-weight: 400;
         font-size: 18px;
-      }
-      .tariffTitle-1 h3{
+}
+
+.tariffTitle-1 h3{
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 30px;
         margin-bottom: 0;
         margin-top: 0;
         margin-left: 0px;
-      }
+}
 
-      .tariffTitle p {
+.tariffTitle p {
         font-family: "Inter", sans-serif;
         font-weight: 400;
         font-size: 17px;
-      }
+}
 
-      .img {
+.img {
         position: relative;
         bottom: 50px;
-      }
+}
 
-      .img-1 {
+.img-1 {
         position: absolute;
         right: 10px;
         bottom: 20px;
-      }
-      .img-2 {
+}
+
+.img-2 {
         position: absolute;
         right: 10px;
         bottom: 40px;
-      }
+}
 
-      
-
-
-      .titleAndImg {
+.titleAndImg {
         display: flex;
-      }
+}
 
-      .newPrice {
+.newPrice {
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 30px;
-      }
-      .oldPrice {
+}
+
+.oldPrice {
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 25px;
         color: grey;
         margin-left: 19px;
-      }
+}
 
-      .tariffInfo {
+.tariffInfo {
         padding: 30px 0 0 30px;
-      }
-    
-      .tariffInfo p {
+}
+
+.tariffInfo p {
         font-family: "Inter", sans-serif;
         font-weight: 400;
         font-size: 18px;
         margin: 10px 0 5px 0;
-      }
+}
 
-      
-      .tariffInfo h4 {
+
+.tariffInfo h4 {
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 20px;
         margin-top: 60px;
         margin-bottom: 10px;
-      }
-      .tariffInfo-2 h4 {
+}
+
+.tariffInfo-2 h4 {
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 20px;
         margin-top: 90px;
         margin-bottom: 10px;
-      }
-      
-      
-   
-      .tariff button {
+}
+
+
+
+.tariff button {
         min-width: 355px;
         min-height: 60px;
-       margin: 55px 0 24px 0;
-       border-radius: 5px;
-       background-color: #5970FF;
-       color: white;
-       border: none;
-       font-family: "Inter", sans-serif;
+        margin: 55px 0 24px 0;
+        border-radius: 5px;
+        background-color: #5970FF;
+        color: white;
+        border: none;
+        font-family: "Inter", sans-serif;
         font-weight: 400;
         font-size: 20px;
-      }
+}
 
-      .swiper-wrapper {
+.swiper-wrapper {
         z-index: 1;
         transition-property: transform;
-        transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
         box-sizing: content-box;
         display: grid;
         grid-template-columns: 400px 400px 400px;
         height: 225px;
         position: relative;
-        margin: 0;
-        margin-top: 70px;
-        margin-bottom: 70px;
-        margin-left: 30px;
-    }
-  
-    .swiper {
+        margin: 70px 0;
+}
+
+.swiper-container {
+    display: flex;
+    align-items: center;
+}
+
+.swiper-button-prev {
+    top: auto;
+}
+
+.swiper-button-next {
+    top: auto;
+}
+
+
+.swiper {
       margin-left: 0;
       margin-right: 0;
       position: relative;
@@ -256,25 +260,29 @@
       list-style: none;
       z-index: 1;
       display: block;
-      
-  }
-  .swiper-slide {
+      width: calc(100% - 90px);
+}
+
+.swiper-slide {
     flex-shrink: 0;
     width: 100%;
     height: 100%;
     position: relative;
     transition-property: transform;
-    display: block;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
 }
+
 .homeInfo {
   position: relative;
-  
 }
-     
-      @media (min-width: 320px) and (max-width: 479px) {
-        .homeContainer {
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .homeContainer {
           max-width: 479px;
-        }
+  }
+
         .homeTitle {
           display: flex;
           flex-direction: column;
@@ -324,7 +332,7 @@
               margin-top: 80px;
               position: relative;
             }
-      
+
             .card {
               border-radius: 10px;
               padding: 30px 0 0 20px;
@@ -347,10 +355,10 @@
               width: 90%;
               margin: 37px 0 43px 14px;
             }
-      
+
             .tariff {
               border-radius: 10px;
-              box-shadow: 0px 0px 20px 0px #00000033; 
+              box-shadow: 0px 0px 20px 0px #00000033;
               position: relative;
             }
             .tariff button {
@@ -359,12 +367,12 @@
               font-family: "Inter", sans-serif;
               font-weight: 400;
               font-size: 18px;
-              
+
             }
             .imgContainer{
                width: 100%;
                height: 500px;
-               overflow: hidden; 
+               overflow: hidden;
             }
             .img {
               position: relative;
@@ -373,7 +381,7 @@
               width: 60px;
               height: 60px;
             }
-      
+
             .img-1 {
               position: absolute;
               right: 10px;
@@ -407,5 +415,5 @@
               margin-top: 0;
               margin-left: 0;
             }
-      }
+}
 

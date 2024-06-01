@@ -1,0 +1,1 @@
+export const MOBILE_SCREEN_MAX_WIDTH = 480;

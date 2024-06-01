@@ -1,7 +1,7 @@
 import "./home.css";
+
 import Cards from "./Components/Cards";
 import Tariffs from "./Components/Tariffs";
-
 
 const HomePage = () => {
     return (
