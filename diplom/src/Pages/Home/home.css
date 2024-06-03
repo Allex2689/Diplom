@@ -227,7 +227,7 @@
         font-size: 20px;
 }
 
-.swiper-wrapper {
+/* .swiper-wrapper {
         z-index: 1;
         transition-property: transform;
         box-sizing: content-box;
@@ -276,7 +276,7 @@
 
 .homeInfo {
   position: relative;
-}
+} */
 
 @media (min-width: 320px) and (max-width: 479px) {
   .homeContainer {

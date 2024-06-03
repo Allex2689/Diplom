@@ -38,4 +38,6 @@ export const rates = [
   ];
 
 
-export const MOBILE_SCREEN_MAX_WIDTH = 800;
+ const MOBILE_SCREEN_MAX_WIDTH = 800;
+
+ export default MOBILE_SCREEN_MAX_WIDTH;

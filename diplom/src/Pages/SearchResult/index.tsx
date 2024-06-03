@@ -2,11 +2,13 @@ import "../SearchResult/searchResult.css";
 import Histograms from "./Components/Histograms/Histograms";
 import AllNews from "./Components/News/News";
 import {useLocation} from "react-router-dom";
+import ArrowPrev from '../../assets/images/arrow1.svg'
+import ArrowNext from '../../assets/images/arrow2.svg';
 
 const SearchResult = () => {
     const { state } = useLocation();
+    
 
-    console.log(state);
 
     return (
         <main className="main">
@@ -21,7 +23,7 @@ const SearchResult = () => {
         <h2>Общая сводка</h2>
         <p className="underTitle">Найдено 4 221 вариантов</p>
         <div className="summaryContainer">
-            <img src="./arrow1.svg" alt="arrow1" />
+            <img src={ArrowPrev} alt="arrow1"/>
            {/* <div className="summaryInfo"> */}
             <div className="summaryInfoTitle">
             <p>Период</p>
@@ -30,7 +32,7 @@ const SearchResult = () => {
             </div>
             <Histograms/>
            {/* </div> */}
-            <img src="./arrow2.svg" alt="arrow2" />
+            <img src={ArrowNext} alt="arrow2"/>
         </div>
         </div>
         <h3>Список документов</h3>

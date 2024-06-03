@@ -1,12 +1,14 @@
-
+import cardsStyle from './cards.module.css';
 import React, {useCallback, useEffect, useState} from 'react';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import {MOBILE_SCREEN_MAX_WIDTH} from "./constans";
+import MOBILE_SCREEN_MAX_WIDTH from "./constans";
 import ArrowPrev from '../../../../assets/images/arrow1.svg';
 import ArrowNext from '../../../../assets/images/arrow2.svg';
 import {Rate, CardsProps} from '../Cards/types';
 import {rates} from '../Cards/constans';
+import classNames from 'classnames';
+
 
 
 
@@ -46,20 +48,21 @@ function Cards() {
   }, []);
 
   return (
-      <div className="swiper-container">
-          <img src={ArrowPrev} alt="arrow1" className="swiper-button-prev" onClick={handlePrevious}/>
+      <div className={cardsStyle['swiper-container']}>
+          <img src={ArrowPrev} alt="arrow1" className={cardsStyle["swiper-button-prev"]} onClick={handlePrevious}/>
           <Swiper
               spaceBetween={10}
               slidesPerView={width < MOBILE_SCREEN_MAX_WIDTH ? 1 : 3}
               onSwiper={setSwiperRef}
+              className={classNames(cardsStyle.swiper, cardsStyle['swiper-wrapper'])}
           >
               {rates.map((rate) => (
-                  <SwiperSlide key={rate.code}>
-                    <Card rate={rate}/>
+                  <SwiperSlide key={rate.code} className={cardsStyle["swiper-slide"]}>
+                    <Card rate={rate} />
                   </SwiperSlide>
               ))}
           </Swiper>
-          <img src={ArrowNext} alt="arrow2" className="swiper-button-next" onClick={handleNext}/>
+          <img src={ArrowNext} alt="arrow2" className={cardsStyle["swiper-button-next"]} onClick={handleNext}/>
       </div>
   );
 }

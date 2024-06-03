@@ -1,7 +1,12 @@
-import { useEffect } from "react";
+import { useEffect,useState, useCallback} from "react";
 import { useHistogramData, HistogramColumn } from "../../hooks/useHistogramData";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import styles1 from '../../searchResult.module.css';
+import classNames from "classnames";
+import MOBILE_SCREEN_MAX_WIDTH from '../../../Home/Components/Cards/constans';
+import ArrowPrev from '../../../../assets/images/arrow1.svg';
+import ArrowNext from '../../../../assets/images/arrow2.svg';
 
 interface Info {
   period: string;
@@ -25,6 +30,28 @@ const Column: React.FC<InfoProps> = ({columnData}) => {
 
 function Histograms () {
     const {data, fetchData} = useHistogramData();
+    const [width, setWidth] = useState<number>(window.innerWidth);
+    const [swiperRef, setSwiperRef] = useState<SwiperClass>();
+    
+    const handlePrevious = useCallback(() => {
+      swiperRef?.slidePrev();
+    }, [swiperRef]);
+  
+    const handleNext = useCallback(() => {
+      swiperRef?.slideNext();
+    }, [swiperRef]);
+
+    function handleWindowSizeChange() {
+      setWidth(window.innerWidth);
+    }
+  
+    useEffect(() => {
+      window.addEventListener('resize', handleWindowSizeChange);
+  
+      return () => {
+        window.removeEventListener('resize', handleWindowSizeChange);
+      }
+    }, []);
 
     useEffect(() => {
         fetchData();
@@ -32,14 +59,17 @@ function Histograms () {
 
     return (
       <>
-      <Swiper>
-     
+      <Swiper 
+       modules={[Navigation]}
+       onSwiper={setSwiperRef}
+      spaceBetween={50}
+      slidesPerView={width < MOBILE_SCREEN_MAX_WIDTH ? 1 : 9}
+      className={classNames(styles1.swiper, styles1['swiper-wrapper'])}
+      >
         {data.map((item) => (
-         <SwiperSlide key={item.date}>
+         <SwiperSlide key={item.date} className={styles1["swiper-slide"]}>
           <Column  columnData={item} />
           </SwiperSlide>
-          
-        
         ))}
    </Swiper>
       </>

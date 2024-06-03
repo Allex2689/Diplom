@@ -48,9 +48,10 @@
 
 
 .summaryContainer {
-   /* min-height: 158px;
+   min-height: 158px;
    display: flex;
-   margin-bottom: 107px; */
+   align-items: center;
+   margin-bottom: 107px;
 }
 
 .summaryInfo {
@@ -68,13 +69,16 @@
    font-family: "Inter", sans-serif;
    font-weight: 500;
    font-size: 20px;  
+   height: 163px;
+   width: 140px;
 }
 .summaryInfoBlock {
    text-align: center;
-   /* border-right: 2px solid #949494; */
+   border-right: 2px solid #949494;
 }
 .summaryInfoBlock p {
    margin-bottom: 23px;
+   margin-right: 30px;
 }
 
 h3 {
@@ -170,8 +174,6 @@ h3 {
    transform: translate(-50%, 0);
    cursor: pointer;
 }
-
-
 
 
 @media (min-width: 320px) and (max-width: 480px) {
