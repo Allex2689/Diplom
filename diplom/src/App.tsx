@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import {Routes, Route, useNavigate} from "react-router-dom";
 import SearchResult from './Pages/SearchResult';
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
+import Header from "./Components/Header/MainHeader/Header";
+import Footer from "./Components/Footer/MainFooter/Footer";
 import HomePage from "./Pages/Home";
 import LoginPage from "./Pages/Login";
 import Search from "./Pages/Search";
 import { UserContext } from "./contexts/UserContext";
 import './index.css';
 import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import MobileMenu from "./Components/Header/MobileMenu/MobileMenu";
 
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
   return (
           <UserContext.Provider value={{user, isAuth, setUser, setIsAuth}}>
               <Header/>
+              {/* <MobileMenu/> */}
               <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/login" element={<LoginPage/>} />

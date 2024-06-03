@@ -4,7 +4,7 @@
     font-style: normal;
     font-weight: 900;
     src: local("Ferry"),
-             url('../Login/Ferry-Black.woff') format("woff");
+             url('../../../public/Ferry-Black.woff') format("woff");
   }
 
 
@@ -188,28 +188,37 @@
 }
 
   @media (min-width: 320px) and (max-width: 480px) {
-    .error1 {
+.error1 {
       color: red;
       font-family: "Inter";
       font-weight: 400;
       font-size: 14px;
       margin-left: 80px;
       margin-top: 5px;
-    }
-    .searchContainer {
+}
+.searchContainer {
       display: flex;
       flex-direction: column;
-    }
+}
 
-    .searchTitle {
+.searchTitle {
       margin: 0 0 0 0;
-  }
+}
 
-  .searchTitle h1 {
+.searchTitle h1 {
     font-family: "Ferry";
     font-weight: 900;
     font-size: 28px;
     width: 320px;
+    position: relative;
+}
+
+.searchTitle h1::after {
+  content: url('../../../public/Document.svg');
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: -50px;
 }
 
 .searchTitle p {
@@ -219,6 +228,7 @@
   margin-bottom: 47px;
   width: 300px;
 }
+
 .searchForm {
   display: flex;
   flex-direction: column;
@@ -226,15 +236,18 @@
   border-radius: 10px;
   box-shadow: 0px 0px 20px 0px #00000033;
 }
+
 .labelList {
   display: none;
 }
+
 .startForm {
   display: flex;
   flex-direction: column;
   padding: 24px 14px;
   width: 100%;
 }
+
 .formInput {
   width: 93%;
   min-height: 43px;
@@ -246,6 +259,7 @@
   font-size: 14px;
   margin-bottom: 30px;
 }
+
 .formInputError1 {
   width: 93%;
   min-height: 43px;
@@ -257,6 +271,7 @@
   font-size: 14px;
   border-color: red;
 }
+
 .formInputError2 {
   width: 93%;
   min-height: 43px;
@@ -268,6 +283,7 @@
   font-size: 14px;
   border-color: red;
 }
+
 .formList {
   width: 93%;
   min-height: 43px;
@@ -281,6 +297,7 @@
   text-align: start;
   padding: 0 20px;
 }
+
 .twoInput{
   display: flex;
   flex-direction: column;
@@ -306,6 +323,7 @@
   flex-direction: column;
   padding: 0;
 }
+
 .endForm button {
   background-color: #5970FF;
   color: white;
@@ -318,6 +336,7 @@
   min-height: 59px;
   margin: 40px 0 10px 14px;
 }
+
 .endForm p {
   color: grey;
   font-family: "Inter", sans-serif;
@@ -325,21 +344,190 @@
   font-size: 14px;
   margin-left: 14px;
 }
+
 .document {
-  position: absolute;
-  bottom: 330px;
-  left: 80%;
-  /* left: 250px; */
-  width: 60px;
-  height: 70px;
+  display: none;
 }
+
 .Folders {
   display: none;
 }
+
 .SearchMan {
   width: 380px;
   height: 400px;
   margin-left: 36px;
-  overflow: hidden;
 }
+
 }
+
+@media (min-width: 480px ) and (max-width: 800px) {
+ 
+
+  .error1 {
+    color: red;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 80px;
+    margin-top: 5px;
+}
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchTitle {
+    margin: 0 0 0 0;
+}
+
+.searchTitle h1 {
+  font-family: "Ferry";
+  font-weight: 900;
+  font-size: 40px;
+  width: 100%;
+}
+
+
+
+.searchTitle p {
+font-family: "Inter";
+font-weight: 400;
+font-size: 20px;
+margin-bottom: 47px;
+width: 100%;
+}
+
+.searchForm {
+display: flex;
+flex-direction: column;
+min-height: 543px;
+border-radius: 10px;
+box-shadow: 0px 0px 20px 0px #00000033;
+}
+
+.labelList {
+display: none;
+}
+
+.startForm {
+display: flex;
+flex-direction: column;
+padding: 24px 14px;
+}
+
+.formInput {
+width: 93%;
+min-height: 43px;
+border-radius: 5px;
+border: 1px solid #C7C7C7;
+text-align: center;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 14px;
+margin-bottom: 30px;
+}
+
+.formInputError1 {
+width: 93%;
+min-height: 43px;
+border-radius: 5px;
+border: 1px solid #C7C7C7;
+text-align: center;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 14px;
+border-color: red;
+}
+
+.formInputError2 {
+width: 93%;
+min-height: 43px;
+border-radius: 5px;
+border: 1px solid #C7C7C7;
+text-align: center;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 14px;
+border-color: red;
+}
+
+.formList {
+width: 93%;
+min-height: 43px;
+border-radius: 5px;
+border: 1px solid #C7C7C7;
+text-align: center;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 14px;
+margin-bottom: 30px;
+text-align: start;
+padding: 0 20px;
+}
+
+.twoInput{
+display: flex;
+flex-direction: column;
+}
+
+.startDate {
+margin-bottom: 20px;
+}
+
+.inputDate {
+min-height: 43px;
+width: 93%;
+font-size: 18px;
+border-radius: 5px;
+border: 1px solid #C7C7C7;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+text-align: center;
+}
+
+.endForm {
+display: flex;
+flex-direction: column;
+padding: 0;
+}
+
+.endForm button {
+background-color: #5970FF;
+color: white;
+font-family: "Inter", sans-serif;
+font-weight: 500;
+font-size: 22px;
+border-radius: 5px;
+border: none;
+width: 93%;
+min-height: 59px;
+margin: 40px 0 10px 14px;
+}
+
+.endForm p {
+color: grey;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 14px;
+margin-left: 14px;
+}
+
+.document {
+display: none ;
+}
+
+.Folders {
+display: none;
+}
+
+.SearchMan {
+width: 380px;
+height: 400px;
+margin-left: 80px;
+
+}
+
+}
+  
+

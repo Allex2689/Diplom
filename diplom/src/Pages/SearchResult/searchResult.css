@@ -4,7 +4,7 @@
     font-style: normal;
     font-weight: 900;
     src: local("Ferry"),
-             url('../Login/Ferry-Black.woff') format("woff");
+             url('../../../public/Ferry-Black.woff') format("woff");
   }
 
 
@@ -23,7 +23,7 @@
 }
 .title1 {
       display: flex; 
-      align-items: center; 
+      /* align-items: center;  */
       justify-content: space-between;
 }
 
@@ -48,9 +48,9 @@
 
 
 .summaryContainer {
-   min-height: 158px;
+   /* min-height: 158px;
    display: flex;
-   margin-bottom: 107px;
+   margin-bottom: 107px; */
 }
 
 .summaryInfo {
@@ -71,7 +71,7 @@
 }
 .summaryInfoBlock {
    text-align: center;
-   border-right: 2px solid #949494;
+   /* border-right: 2px solid #949494; */
 }
 .summaryInfoBlock p {
    margin-bottom: 23px;
@@ -171,43 +171,51 @@ h3 {
    cursor: pointer;
 }
 
+
+
+
 @media (min-width: 320px) and (max-width: 480px) {
  
-   .main {
+.main {
       display: flex;
       flex-direction: column;
       
-   }
-   .title1 {
+}
+.title1 {
       padding: 0 0 0 14px;
       display: flex;
       flex-direction: column;
-  }
-   .title1 img{
+}
+
+.title1 img{
       width: 93%;
-  }
+}
   
-  .title1 p {
+.title1 p {
    font-family: "Inter", sans-serif;
    font-weight: 400;
    font-size: 20px;
    margin-bottom: 21px;
 }
+
 .title1 h1 {
    font-family: "Ferry", sans-serif;
    font-weight: 900;
    font-size: 28px;
    margin-bottom: 21px;
 }
+
 .summary {
    padding: 0 14px 0 0;
    width: 100%;
 } 
+
 .summary h2{
    font-family: "Ferry", sans-serif;
    font-weight: 900;
    font-size: 28px;
 } 
+
 .summaryContainer {
    min-height: 158px;
    display: flex;
@@ -233,32 +241,40 @@ h3 {
    border-radius: 7px 7px 0 0;
    padding: 0 15px;
 }
+
 .summaryInfoTitle :nth-child(1){ 
   margin-right: 50px;
 }
+
 .summaryInfoTitle :nth-child(2){ 
   margin-right: 20px;
 }
+
 .summaryInfoBlock {
    border-right: none;
    display: flex;
    padding: 0 40px 0 9px;
 }
+
 .summaryInfoBlock :nth-child(1){
    margin-right: 70px;
 }
+
 .summaryInfoBlock :nth-child(2){
    margin-right: 70px;
 }
+
 .summaryInfoBlock p {
    margin-bottom: 23px;
 }
+
 h3 {
    font-family: "Ferry", sans-serif;
    font-weight: 900;
    font-size: 28px;
    margin-left: 14px;
 }
+
 .newsContainer {
    padding: 30px 15px;
    display: grid;
@@ -271,6 +287,7 @@ h3 {
   display: flex;
   align-items: center;
 }
+
 .topInfo a{
   margin-left: 14px;
   font-family: "Inter", sans-serif;
@@ -284,6 +301,7 @@ h3 {
    padding: 19px 14px 18px 24px;
    border-radius: 10px;
 }
+
 .news h4{
    font-family: "Inter", sans-serif;
    font-weight: 500;
@@ -330,6 +348,7 @@ height: 160px;
    justify-content: space-between;
    margin-top: 32px;
 }
+
 .buttonWithText p {
   position: relative;
   top: 20px;
@@ -355,4 +374,213 @@ height: 160px;
    cursor: pointer;
    margin-left: 14px;
 }
+
+
 }
+
+@media (min-width: 480px ) and (max-width: 800px) {
+ 
+.main {
+      display: flex;
+      flex-direction: column;
+      
+}
+.title1 {
+      padding: 0 0 0 14px;
+      display: flex;
+      flex-direction: column;
+}
+
+.title1 img{
+      width: 93%;
+      margin-left: 60px;
+}
+  
+.title1 p {
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 30px;
+   margin-bottom: 40px;
+   
+}
+
+.title1 h1 {
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 40px;
+   margin-bottom: 40px;
+   width: 100%;
+}
+
+.summary {
+   padding: 0 14px 0 0;
+   width: 100%;
+   margin-left: 15px;
+} 
+
+.summary h2{
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 28px;
+} 
+
+.summaryContainer {
+   min-height: 158px;
+   display: flex;
+   margin-bottom: 57px;
+}
+
+.summaryInfo {
+   display: grid;
+   grid-template-rows: 75px 75px;
+   grid-template-columns: none;
+   border: 2px solid #029491;
+   border-radius: 10px;
+   width: 300px;
+}
+
+.summaryInfoTitle{ 
+   background-color: #029491;
+   color: white;
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 18px;  
+   display: flex;
+   border-radius: 7px 7px 0 0;
+   padding: 0 15px;
+}
+
+.summaryInfoTitle :nth-child(1){ 
+  margin-right: 50px;
+}
+
+.summaryInfoTitle :nth-child(2){ 
+  margin-right: 20px;
+}
+
+.summaryInfoBlock {
+   border-right: none;
+   display: flex;
+   padding: 0 40px 0 9px;
+}
+
+.summaryInfoBlock :nth-child(1){
+   margin-right: 70px;
+}
+
+.summaryInfoBlock :nth-child(2){
+   margin-right: 70px;
+}
+
+.summaryInfoBlock p {
+   margin-bottom: 23px;
+}
+
+h3 {
+   font-family: "Ferry", sans-serif;
+   font-weight: 900;
+   font-size: 28px;
+   margin-left: 14px;
+}
+
+.newsContainer {
+   padding: 30px 15px;
+   display: grid;
+   grid-template-columns: none;
+   grid-template-rows: 1fr 1fr;
+   width: 90%;
+}
+
+.topInfo {
+  display: flex;
+  align-items: center;
+}
+
+.topInfo a{
+  margin-left: 14px;
+  font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 14px;
+   color: grey;
+}
+
+.news {
+   box-shadow: 0px 0px 20px 0px #00000033;
+   padding: 19px 14px 18px 24px;
+   border-radius: 10px;
+}
+
+.news h4{
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 19px;
+   margin: 21px 0 20px 0;
+}
+
+.underTitleText {
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 10px;
+   background-color: orange;
+   border-radius: 5px;
+   display: inline-block;
+   padding: 4px 11px 3px 14px;
+   color: black !important;
+}
+
+.newsImg {
+width: 300px;
+height: 160px;
+}
+
+.news p{
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 12px;
+   color: grey;
+}
+
+.news button {
+   background-color: #7CE3E1;
+   border-radius: 5px;
+   border: none;
+   padding: 14px 30px;
+   font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 16px;
+   cursor: pointer;
+}
+
+.buttonWithText {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 32px;
+}
+
+.buttonWithText p {
+  position: relative;
+  top: 20px;
+  font-family: "Inter", sans-serif;
+   font-weight: 400;
+   font-size: 14px;
+}
+
+.bottomButton {
+   color: white;
+   font-family: "Inter", sans-serif;
+   font-weight: 500;
+   font-size: 22px;
+   border: none;
+   border-radius: 5px;
+   background-color: #5970FF;
+   padding: 16px 50px;
+   margin-bottom: 57px;
+   margin-top: 35px;
+   position: relative;
+   left: 47%;
+   transform: translate(-50%, 0);
+   cursor: pointer;
+   margin-left: 14px;
+}
+   
+   }

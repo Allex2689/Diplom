@@ -4,8 +4,10 @@
     font-style: normal;
     font-weight: 900;
     src: local("Ferry"),
-             url('./Ferry-Black.woff') format("woff");
+             url('../../../public/Ferry-Black.woff') format("woff");
   }
+
+  
   .loginError { 
     color: red !important; 
   }
@@ -161,11 +163,13 @@
         font-weight: 900;
         margin-bottom: 126px;
     }
+
     .titleInfo {
         display: flex;
         flex-direction: column;
     
     }
+
     .loginForm {
         height: 504px;
         width: 335px;
@@ -178,6 +182,7 @@
         font-weight: 400;
         position: relative;
     }
+
     .entrance {
     
         color: grey;  
@@ -255,17 +260,151 @@
         margin-right: 10px;
         cursor: pointer;
     }
+
     .lock {
         position: absolute;
         bottom: 98%;
         right: 50%;
     }
+
     .key {
         display: none;
     }
+
     .key2 {
         display: block;
         margin-top: 50px;
     }
     
 }
+
+@media (min-width: 480px ) and (max-width: 800px) {
+ 
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        min-width: 320px;
+        margin-left: 14px;
+    }
+
+    .title {
+        font-family: "Ferry", sans-serif;
+        font-size: 30px;
+        font-weight: 900;
+        margin-bottom: 126px;
+    }
+
+    .titleInfo {
+        display: flex;
+        flex-direction: column;
+    
+    }
+
+    .loginForm {
+        height: 504px;
+        width: 100%;
+        background-color:#FFFFFF;
+        box-shadow: 0px 0px 20px 0px #00000026;
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 25px 15px;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        position: relative;
+    }
+
+    .entrance {
+    
+        color: grey;  
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        align-items: center;
+    }
+    
+    .enter {
+         border-bottom: 2px solid #C7C7C7;
+         width: 103px;
+         text-align: center;
+         cursor: pointer;
+    }
+    
+    
+    .register {
+         border-bottom: 2px solid #C7C7C7;
+         width: 182px;
+         text-align: center;
+         cursor: pointer;
+    }
+    
+    .formInfo {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .formInfo span {
+        color: grey;
+        margin-bottom: 25px;
+    }
+    
+    .loginInput {
+        min-width: 305px;
+        height: 43px;
+        border-radius: 5px;
+        margin-bottom: 35px;
+        border-color: #C7C7C7;
+    }
+    
+    .formButton {
+        background-color: #5970FF;
+        min-width: 305px;
+        min-height: 59px;
+        color: white;
+        border-radius: 5px;
+        font-size: 22px;
+        border: none;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+    
+    .recover {
+        color: #5970FF !important;
+        margin-top: 40px;
+        border-bottom: 1px solid #5970FF;
+        width: 151px;
+        font-size: 14px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+    
+    .navButton{
+        display: flex;
+    }
+    
+    .navButton button {
+        min-height: 31px;
+        min-width: 96px;
+        background-color: white;
+        border-color: #5970FF82;
+        border-radius: 3px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    .lock {
+        position: absolute;
+        bottom: 98%;
+        right: 50%;
+    }
+
+    .key {
+        display: none;
+    }
+
+    .key2 {
+        display: block;
+        margin-top: 50px;
+    }
+    
+    }

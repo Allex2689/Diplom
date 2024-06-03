@@ -4,7 +4,7 @@
     font-style: normal;
     font-weight: 900;
     src: local("Ferry"),
-             url('../Login/Ferry-Black.woff') format("woff");
+             url('../../../public/Ferry-Black.woff') format("woff");
 }
 
 
@@ -415,5 +415,160 @@
               margin-top: 0;
               margin-left: 0;
             }
+}
+
+@media (min-width: 480px ) and (max-width: 800px) {
+ 
+.homeContainer {
+        max-width: 800px;
+}
+      
+.homeTitle {
+        display: flex;
+        flex-direction: column;
+        margin-left: 14px;
+}
+
+
+
+.homeTitle h1 {
+        font-family: "Ferry", sans-serif;
+        font-size: 40px;
+        margin-bottom: 50px;
+}
+
+.homeTitle p {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 25px;
+}
+
+.homeTitle button {
+        width: 100%;
+        height: 60px;
+        margin-top: 30px;
+        border-radius: 5px;
+        background-color: #5970FF;
+        border: none;
+        color: white;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        cursor: pointer;
+}
+      
+.homeInfo h1 {
+        font-family: "Ferry", sans-serif;
+        font-weight: 900;
+        font-size: 35px;
+        width: 274px;
+        margin-left: 14px;
+}
+
+.homeInfo {
+        margin-left: 14px;
+}
+
+.infoCards {
+        display: grid;
+        grid-template-columns: 300px 300px 300px;
+        min-height: 188px;
+        margin-left: 10px;
+        margin-top: 80px;
+        position: relative;
+}
+      
+.card {
+        border-radius: 10px;
+        padding: 30px 0 0 20px;
+        box-shadow: 0px 0px 20px 0px #00000033;
+}
+
+.HomeImg {
+        width: 890px;
+        height: 390px;
+        margin-left: 14px;
+}
+
+.homeContainer h2{
+        font-family: "Ferry", sans-serif;
+        font-size: 28px;
+        margin: 80px 0 0 14px;
+}
+
+.tariffs {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: 90%;
+        margin: 37px 0 43px 14px;
+}
+      
+.tariff {
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px #00000033;
+        position: relative;
+}
+
+.tariff button {
+        min-width: 286px;
+        min-height: 60px;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 18
+}
+
+.imgContainer{
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
+}
+
+.img {
+        position: relative;
+        bottom: 50px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+}
+      
+.img-1 {
+        position: absolute;
+        right: 10px;
+        bottom: 70px;
+        width: 80px;
+        height: 80px;
+}
+
+.img-2 {
+        position: absolute;
+        right: 10px;
+        bottom: 70px;
+        width: 70px;
+        height: 70px;
+}
+
+.tariffInfo {
+        padding: 30px 40px 0 30px;
+}
+
+.tariffTitle-1 h3 {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 0px;
+}
+
+.tariffTitle h3 {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-top: 0;
+        margin-left: 0;
+}
+        
 }
 

@@ -1,19 +1,49 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './Header.css';
-import UserInfo from './UserInfo';
-import { UserContext } from '../../contexts/UserContext';
+import UserInfo from '../UserInfo/UserInfo';
+import { UserContext } from '../../../contexts/UserContext';
 import {Link, useNavigate} from "react-router-dom";
+import MobileMenu from '../MobileMenu/MobileMenu';
 
 const Header = () => {
   const { user, isAuth } = useContext(UserContext);
-
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+
+
+
+  const openMenu = () => {
+    setIsVisible(!isVisible);
+  }
+
+
   const goToLogin = () => {
     navigate('/login');
   }
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 800) {
+        setIsVisible(false);
+      }
+    };
+
+    
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
+  
+
   return (
-          <header className='header'>
+    <>
+    {isVisible === false ? 
+          <header className='header'> 
             <img src="/Logo.svg" alt="Лого" className='header__img'/>
             <ul className="header__ul">
               <a href="/">Главная</a>
@@ -29,8 +59,11 @@ const Header = () => {
                   </Link>
                 </div>
             )}
-            <div id="nav-btn"></div>
+            <div id="nav-btn" onClick={openMenu}></div>
+            
         </header>
+  : <MobileMenu/>}
+        </>
   );
 }
 

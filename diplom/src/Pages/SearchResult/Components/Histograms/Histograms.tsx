@@ -1,18 +1,17 @@
 import { useEffect } from "react";
-import { useHistogramData, HistogramColumn } from "../hooks/useHistogramData";
-
+import { useHistogramData, HistogramColumn } from "../../hooks/useHistogramData";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import styles1 from '../../searchResult.module.css';
 
 interface Info {
-    period: string;
-    total: number;
-    risks: number;
+  period: string;
+  total: number;
+  risks: number;
 }
-
 
 interface InfoProps {
-    columnData: HistogramColumn;
+  columnData: HistogramColumn;
 }
-
 
 const Column: React.FC<InfoProps> = ({columnData}) => {
     return (
@@ -33,9 +32,16 @@ function Histograms () {
 
     return (
       <>
+      <Swiper>
+     
         {data.map((item) => (
-          <Column key={item.date} columnData={item} />
+         <SwiperSlide key={item.date}>
+          <Column  columnData={item} />
+          </SwiperSlide>
+          
+        
         ))}
+   </Swiper>
       </>
     );
   }

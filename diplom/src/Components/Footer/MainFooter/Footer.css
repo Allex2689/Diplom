@@ -44,3 +44,21 @@
 
     
 }
+
+@media (min-width: 320px) and (max-width: 800px) {
+ 
+    .footer {
+        background-color: #029491;
+        height: 137px;
+        padding: 25px 19px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+    }
+    .footerImg {
+        width: 150px;
+        height: 150px;
+    }
+
+    
+}

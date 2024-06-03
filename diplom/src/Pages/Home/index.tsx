@@ -1,7 +1,6 @@
 import "./home.css";
-
-import Cards from "./Components/Cards";
-import Tariffs from "./Components/Tariffs";
+import Cards from "./Components/Cards/Cards";
+import Tariffs from "./Components/Tariffs/Tariffs";
 
 const HomePage = () => {
     return (

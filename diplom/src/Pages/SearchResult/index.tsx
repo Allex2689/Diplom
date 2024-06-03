@@ -1,5 +1,5 @@
 import "../SearchResult/searchResult.css";
-import Histograms from "./Components/Histograms";
+import Histograms from "./Components/Histograms/Histograms";
 import AllNews from "./Components/News/News";
 import {useLocation} from "react-router-dom";
 
@@ -22,14 +22,14 @@ const SearchResult = () => {
         <p className="underTitle">Найдено 4 221 вариантов</p>
         <div className="summaryContainer">
             <img src="./arrow1.svg" alt="arrow1" />
-           <div className="summaryInfo">
+           {/* <div className="summaryInfo"> */}
             <div className="summaryInfoTitle">
             <p>Период</p>
             <p>Всего</p>
             <p>Риски</p>
             </div>
             <Histograms/>
-           </div>
+           {/* </div> */}
             <img src="./arrow2.svg" alt="arrow2" />
         </div>
         </div>
