@@ -1,30 +1,30 @@
-import {useLocation} from "react-router-dom";
-import {useEffect} from "react";
-import moment from "moment";
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import moment from 'moment';
 
 interface AuthVerifyProps {
-    logOut: () => void;
+  logOut: () => void;
 }
 
 const AuthVerify = (props: AuthVerifyProps) => {
-    const { logOut } = props;
+  const { logOut } = props;
 
-    const location = useLocation();
+  const location = useLocation();
 
-    useEffect(() => {
-        const expire = localStorage.getItem('expire');
+  useEffect(() => {
+    const expire = localStorage.getItem('expire');
 
-        if (!expire) {
-            return;
-        }
+    if (!expire) {
+      return;
+    }
 
-        const expireDate = moment(expire);
-        if (expireDate < moment()) {
-            logOut();
-        }
-    }, [location])
+    const expireDate = moment(expire);
+    if (expireDate < moment()) {
+      logOut();
+    }
+  }, [location]);
 
-    return null;
-}
+  return null;
+};
 
 export default AuthVerify;

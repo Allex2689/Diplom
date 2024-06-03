@@ -1,55 +1,48 @@
 import { useState } from 'react';
-import moment from 'moment';
 import { useLocation } from 'react-router-dom';
 
-export enum HistogramType {
-  RiskFactors = 'riskFactors',
-  TotalDocuments = 'totalDocuments'
+interface News {}
+
+interface ObjectSearchItem {
+  encodedId: string;
+  influence: number;
+  similarCount: number;
 }
 
-interface HistogramData {
-  date: string;
-  value: number;
+interface ObjectSearchResponseData {
+  items: ObjectSearchItem[];
 }
 
-interface Histogram {
-  data: HistogramData[];
-  histogramType: HistogramType.RiskFactors | HistogramType.TotalDocuments;
-}
+interface DocumentsResponseData {}
 
-export interface HistogramColumn {
-  date: string;
-  totalDocuments: number;
-  riskFactors: number;
-}
+export const useNewsData = () => {
+  const [data, setData] = useState([]);
 
-const transformData = (data: Histogram[]) => {
-  const result: HistogramColumn[] = [];
-
-  data[0]?.data?.map(({ date, value }) => {
-    const formattedDate = moment(date).format('DD.MM.YYYY');
-    const riskFactors = data[1]?.data?.find((riskData) => riskData.date === date)?.value || 0;
-
-    result.push({
-      date: formattedDate,
-      totalDocuments: value,
-      riskFactors: riskFactors
-    });
-  });
-
-  return result;
-};
-
-export const useHistogramData = () => {
-  const [data, setData] = useState<Histogram[]>([]);
   const { state } = useLocation();
+
+  const fetchDocuments = (ids: string[]) => {
+    fetch('https://gateway.scan-interfax.ru/api/v1/documents', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      },
+      body: JSON.stringify({ ids })
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseData: DocumentsResponseData) => {
+        setData(responseData);
+      });
+  };
 
   const fetchData = () => {
     if (!state) {
       return;
     }
 
-    fetch('https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms', {
+    fetch('https://gateway.scan-interfax.ru/api/v1/objectsearch', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -114,13 +107,14 @@ export const useHistogramData = () => {
       .then((response) => {
         return response.json();
       })
-      .then((responseData) => {
-        setData(responseData?.data);
+      .then((responseData: ObjectSearchResponseData) => {
+        const ids = responseData.items.map((item: ObjectSearchItem) => item.encodedId);
+        fetchDocuments(ids);
       })
       .catch((err) => console.error(err));
   };
   return {
-    data: transformData(data),
+    data,
     fetchData
   };
 };

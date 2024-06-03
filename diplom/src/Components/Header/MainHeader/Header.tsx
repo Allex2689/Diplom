@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import './Header.css';
 import UserInfo from '../UserInfo/UserInfo';
 import { UserContext } from '../../../contexts/UserContext';
-import {Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import MobileMenu from '../MobileMenu/MobileMenu';
 
 const Header = () => {
@@ -10,16 +10,13 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
-
-
   const openMenu = () => {
     setIsVisible(!isVisible);
-  }
-
+  };
 
   const goToLogin = () => {
     navigate('/login');
-  }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,7 +25,6 @@ const Header = () => {
       }
     };
 
-    
     handleResize();
 
     window.addEventListener('resize', handleResize);
@@ -37,34 +33,37 @@ const Header = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
-  
 
   return (
     <>
-    {isVisible === false ? 
-          <header className='header'> 
-            <img src="/Logo.svg" alt="Лого" className='header__img'/>
-            <ul className="header__ul">
-              <a href="/">Главная</a>
-              <a href="">Тарифы</a>
-              <a href="">FAQ</a>
-            </ul>
-            {isAuth ? <UserInfo user={user} /> : (
-              <div className='header__entrance'>
-                  <span>Зарегистрироваться</span>
-                  <div className='line'></div>
-                  <Link to={"/login"}>
-                    <button className='header__button' onClick={goToLogin}>Войти</button>
-                  </Link>
-                </div>
-            )}
-            <div id="nav-btn" onClick={openMenu}></div>
-            
+      {isVisible === false ? (
+        <header className="header">
+          <img src="/Logo.svg" alt="Лого" className="header__img" />
+          <ul className="header__ul">
+            <a href="/">Главная</a>
+            <a href="">Тарифы</a>
+            <a href="">FAQ</a>
+          </ul>
+          {isAuth ? (
+            <UserInfo user={user} />
+          ) : (
+            <div className="header__entrance">
+              <span>Зарегистрироваться</span>
+              <div className="line"></div>
+              <Link to={'/login'}>
+                <button className="header__button" onClick={goToLogin}>
+                  Войти
+                </button>
+              </Link>
+            </div>
+          )}
+          <div id="nav-btn" onClick={openMenu}></div>
         </header>
-  : <MobileMenu/>}
-        </>
+      ) : (
+        <MobileMenu />
+      )}
+    </>
   );
-}
+};
 
 export default Header;

@@ -1,16 +1,23 @@
-import React from 'react';
-import {newsInfo} from './data';
+import React, { useEffect } from 'react';
+import { newsInfo } from './data';
 import { NewsCard } from './NewsCard';
 import { News } from './types';
+import { useNewsData } from '../../hooks/useNewsData';
 
 function AllNews() {
-    return (
-      <>
-        {newsInfo.map((props: News) => (
-          <NewsCard key={props.code} props={props} />
-        ))}
-      </>
-    );
-  }
+  const { data, fetchData } = useNewsData();
 
-  export default AllNews;
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      {newsInfo.map((props: News) => (
+        <NewsCard key={props.code} props={props} />
+      ))}
+    </>
+  );
+}
+
+export default AllNews;
