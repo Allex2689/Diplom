@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistogramData, HistogramColumn } from '../../hooks/useHistogramData';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styles1 from '../../searchResult.module.css';
 import { useLocation } from 'react-router-dom';
+import MOBILE_SCREEN_MAX_WIDTH from '../../../Home/Components/Cards/constans'
 
 interface Info {
   period: string;
@@ -26,6 +27,19 @@ const Column: React.FC<InfoProps> = ({ columnData }) => {
 
 function Histograms() {
   const { data, fetchData } = useHistogramData();
+  const [width, setWidth] = useState<number>(window.innerWidth);
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange);
+    };
+  }, []);
 
   useEffect(() => {
     fetchData();
@@ -33,7 +47,12 @@ function Histograms() {
 
   return (
     <>
-      <Swiper className="swiper-histogram">
+      <Swiper 
+      className="swiper-histogram"
+      spaceBetween={20}
+      slidesPerView={width < MOBILE_SCREEN_MAX_WIDTH ? 1 : 9}
+      >
+      
         {data.map((item) => (
           <SwiperSlide key={item.date}>
             <Column columnData={item} />

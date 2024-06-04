@@ -13,12 +13,39 @@ interface ObjectSearchResponseData {
   items: ObjectSearchItem[];
 }
 
-interface DocumentsResponseData {}
+
+interface Document {
+  id: string;
+  title: string;
+  content: string;
+}
+
+interface DocumentsResponseData {
+  documents: Document[];
+}
+
+interface LocationState {
+  startDate: string;
+  endDate: string;
+  inn: string;
+  maxFullness: boolean;
+  inBusinessNews: boolean;
+  onlyMainRole: boolean;
+  tonality: string;
+  onlyWithRiskFactors: boolean;
+  excludeTechNews: boolean;
+  excludeAnnouncements: boolean;
+  excludeDigests: boolean;
+  limit: number;
+}
 
 export const useNewsData = () => {
-  const [data, setData] = useState([]);
+ 
+  const [data, setData] = useState<Document[]>([]);
 
-  const { state } = useLocation();
+  
+  const location = useLocation();
+  const state = location.state as LocationState | undefined;
 
   const fetchDocuments = (ids: string[]) => {
     fetch('https://gateway.scan-interfax.ru/api/v1/documents', {
@@ -29,12 +56,12 @@ export const useNewsData = () => {
       },
       body: JSON.stringify({ ids })
     })
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((responseData: DocumentsResponseData) => {
-        setData(responseData);
-      });
+      
+        setData(responseData.documents);
+      })
+      .catch((error) => console.error('Error fetching documents:', error));
   };
 
   const fetchData = () => {
@@ -104,15 +131,14 @@ export const useNewsData = () => {
         histogramTypes: ['totalDocuments', 'riskFactors']
       })
     })
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((responseData: ObjectSearchResponseData) => {
         const ids = responseData.items.map((item: ObjectSearchItem) => item.encodedId);
         fetchDocuments(ids);
       })
       .catch((err) => console.error(err));
   };
+
   return {
     data,
     fetchData

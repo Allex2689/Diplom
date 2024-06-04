@@ -222,7 +222,7 @@
   font-size: 20px;
 }
 
-.swiper-home > .swiper-wrapper {
+.swiper-wrapper {
   z-index: 1;
   transition-property: transform;
   box-sizing: content-box;
@@ -233,7 +233,7 @@
   margin: 70px 0;
 }
 
-.swiper-home > .swiper-container {
+.swiper-container {
   display: flex;
   align-items: center;
 }

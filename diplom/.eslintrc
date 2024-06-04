@@ -10,7 +10,7 @@
     "node": true
   },
   "rules": {
-    "no-console": "error",
+    "no-console": "warn",
     "object-curly-spacing": ["error", "always"],
     "react-hooks/exhaustive-deps": "off"
   }

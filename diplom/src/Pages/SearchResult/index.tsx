@@ -34,12 +34,14 @@ const SearchResult = () => {
         <p className="underTitle">Найдено 4 221 вариантов</p>
         <div className="summaryContainer">
           <img src="./arrow1.svg" alt="arrow1" />
+         
           <div className="summaryInfoTitle">
             <p>Период</p>
             <p>Всего</p>
             <p>Риски</p>
           </div>
           <Histograms />
+        
           <img src="./arrow2.svg" alt="arrow2" />
         </div>
       </div>

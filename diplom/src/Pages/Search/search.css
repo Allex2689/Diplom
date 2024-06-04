@@ -169,6 +169,7 @@
   width: 305px;
   min-height: 59px;
   margin: 145px 0 10px 112px;
+  cursor: pointer;
 }
 .endForm p {
   color: grey;
