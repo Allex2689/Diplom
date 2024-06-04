@@ -1,55 +1,68 @@
 import { useState } from 'react';
-import moment from 'moment';
 import { useLocation } from 'react-router-dom';
+import { Document } from "../Components/Documents/types";
 
-export enum HistogramType {
-  RiskFactors = 'riskFactors',
-  TotalDocuments = 'totalDocuments'
+interface ObjectSearchItem {
+  encodedId: string;
+  influence: number;
+  similarCount: number;
 }
 
-interface HistogramData {
-  date: string;
-  value: number;
+interface ObjectSearchResponseData {
+  items: ObjectSearchItem[];
 }
 
-interface Histogram {
-  data: HistogramData[];
-  histogramType: HistogramType.RiskFactors | HistogramType.TotalDocuments;
+interface DocumentResponseData {
+  ok: Document;
 }
 
-export interface HistogramColumn {
-  date: string;
-  totalDocuments: number;
-  riskFactors: number;
+interface LocationState {
+  startDate: string;
+  endDate: string;
+  inn: string;
+  maxFullness: boolean;
+  inBusinessNews: boolean;
+  onlyMainRole: boolean;
+  tonality: string;
+  onlyWithRiskFactors: boolean;
+  excludeTechNews: boolean;
+  excludeAnnouncements: boolean;
+  excludeDigests: boolean;
+  limit: number;
 }
 
-const transformData = (data: Histogram[]) => {
-  const result: HistogramColumn[] = [];
+export const useDocumentsData = () => {
 
-  data[0]?.data?.map(({ date, value }) => {
-    const formattedDate = moment(date).format('DD.MM.YYYY');
-    const riskFactors = data[1]?.data?.find((riskData) => riskData.date === date)?.value || 0;
+  const [data, setData] = useState<Document[]>([]);
+  const [isLoading, setLoading] = useState(false);
 
-    result.push({
-      date: formattedDate,
-      totalDocuments: value,
-      riskFactors: riskFactors
-    });
-  });
+  const location = useLocation();
+  const state = location.state as LocationState | undefined;
 
-  return result;
-};
-
-export const useHistogramData = () => {
-  const [data, setData] = useState<Histogram[]>([]);
-  const { state } = useLocation();
+  const fetchDocuments = (ids: string[]) => {
+    fetch('https://gateway.scan-interfax.ru/api/v1/documents', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+      },
+      body: JSON.stringify({ ids })
+    })
+      .then((response) => response.json())
+      .then((responseData: DocumentResponseData[]) => {
+        const documents: Document[] = responseData.map((data: DocumentResponseData) => data.ok);
+        setData(documents);
+      })
+      .catch((error) => console.error('Error fetching documents:', error));
+  };
 
   const fetchData = () => {
     if (!state) {
       return;
     }
 
-    fetch('https://gateway.scan-interfax.ru/api/v1/objectsearch/histograms', {
+    setLoading(true);
+    fetch('https://gateway.scan-interfax.ru/api/v1/objectsearch', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -111,16 +124,17 @@ export const useHistogramData = () => {
         histogramTypes: ['totalDocuments', 'riskFactors']
       })
     })
-      .then((response) => {
-        return response.json();
+      .then((response) => response.json())
+      .then((responseData: ObjectSearchResponseData) => {
+        const ids = responseData.items.map((item: ObjectSearchItem) => item.encodedId);
+        fetchDocuments(ids);
       })
-      .then((responseData) => {
-        setData(responseData?.data);
-      })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err)).finally(() => setLoading(false));
   };
+
   return {
-    data: transformData(data),
+    data,
+    isLoading,
     fetchData
   };
 };

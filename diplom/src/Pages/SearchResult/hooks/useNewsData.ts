@@ -13,7 +13,6 @@ interface ObjectSearchResponseData {
   items: ObjectSearchItem[];
 }
 
-
 interface Document {
   id: string;
   title: string;
@@ -40,10 +39,8 @@ interface LocationState {
 }
 
 export const useNewsData = () => {
- 
   const [data, setData] = useState<Document[]>([]);
 
-  
   const location = useLocation();
   const state = location.state as LocationState | undefined;
 
@@ -58,7 +55,6 @@ export const useNewsData = () => {
     })
       .then((response) => response.json())
       .then((responseData: DocumentsResponseData) => {
-      
         setData(responseData.documents);
       })
       .catch((error) => console.error('Error fetching documents:', error));

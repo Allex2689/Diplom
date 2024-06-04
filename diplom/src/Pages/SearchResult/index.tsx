@@ -1,6 +1,6 @@
 import '../SearchResult/searchResult.css';
 import Histograms from './Components/Histograms/Histograms';
-import AllNews from './Components/News/News';
+import Documents from './Components/Documents/Documents';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -34,20 +34,20 @@ const SearchResult = () => {
         <p className="underTitle">Найдено 4 221 вариантов</p>
         <div className="summaryContainer">
           <img src="./arrow1.svg" alt="arrow1" />
-         
+
           <div className="summaryInfoTitle">
             <p>Период</p>
             <p>Всего</p>
             <p>Риски</p>
           </div>
           <Histograms />
-        
+
           <img src="./arrow2.svg" alt="arrow2" />
         </div>
       </div>
       <h3>Список документов</h3>
       <div className="newsContainer">
-        <AllNews />
+        <Documents />
       </div>
       <button className="bottomButton">Показать больше</button>
     </main>

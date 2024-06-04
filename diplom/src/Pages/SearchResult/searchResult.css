@@ -216,9 +216,8 @@ h3 {
   }
 
   .summaryContainer {
-    position: relative;
+    min-height: 158px;
     display: flex;
-    flex-direction: column;
     margin-bottom: 57px;
   }
 
@@ -242,11 +241,11 @@ h3 {
     padding: 0 15px;
   }
 
-  .summaryInfoTitle :nth-child(1) {
+  .summaryInfoTitle:nth-child(1) {
     margin-right: 50px;
   }
 
-  .summaryInfoTitle :nth-child(2) {
+  .summaryInfoTitle:nth-child(2) {
     margin-right: 20px;
   }
 
@@ -256,11 +255,11 @@ h3 {
     padding: 0 40px 0 9px;
   }
 
-  .summaryInfoBlock :nth-child(1) {
+  .summaryInfoBlock:nth-child(1) {
     margin-right: 70px;
   }
 
-  .summaryInfoBlock :nth-child(2) {
+  .summaryInfoBlock:nth-child(2) {
     margin-right: 70px;
   }
 
@@ -420,14 +419,16 @@ h3 {
   }
 
   .summaryContainer {
-    position: relative;
+    min-height: 158px;
     display: flex;
-    flex-direction: column;
     margin-bottom: 57px;
   }
 
   .summaryInfo {
+    display: grid;
+    grid-template-rows: 75px 75px;
     grid-template-columns: none;
+    border: 2px solid #029491;
     border-radius: 10px;
     width: 300px;
   }
@@ -441,15 +442,13 @@ h3 {
     display: flex;
     border-radius: 7px 7px 0 0;
     padding: 0 15px;
-    height: 75px;
-    
   }
 
-  .summaryInfoTitle :nth-child(1) {
+  .summaryInfoTitle:nth-child(1) {
     margin-right: 50px;
   }
 
-  .summaryInfoTitle :nth-child(2) {
+  .summaryInfoTitle:nth-child(2) {
     margin-right: 20px;
   }
 
@@ -459,11 +458,11 @@ h3 {
     padding: 0 40px 0 9px;
   }
 
-  .summaryInfoBlock :nth-child(1) {
+  .summaryInfoBlock:nth-child(1) {
     margin-right: 70px;
   }
 
-  .summaryInfoBlock :nth-child(2) {
+  .summaryInfoBlock:nth-child(2) {
     margin-right: 70px;
   }
 
@@ -577,35 +576,34 @@ h3 {
     cursor: pointer;
     margin-left: 14px;
   }
-
 }
 
 .swiper-histogram > .swiper-wrapper {
-  z-index: 1;
+      z-index: 1;
       transition-property: transform;
       box-sizing: content-box;
-      position: relative;  
+      position: relative;
       display: flex;
       margin: 0;
 }
 
 .swiper-histogram > .swiper-button-prev {
-top: auto;
+    top: auto;
 }
 
 .swiper-histogram > .swiper-button-next {
 top: auto;
 }
 
-.swiper-histogram > .swiper-slide {
-flex-shrink: 0;
-width: 100%;
-height: 100%;
-position: relative;
-transition-property: transform;
-display: flex !important;
-align-items: center;
-justify-content: center;
+.swiper-histogram > .swiper-wrapper >.swiper-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
 
 .swiper-histogram {
