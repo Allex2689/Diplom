@@ -1,18 +1,34 @@
-import '../SearchResult/searchResult.css';
+import '../SearchResult/index.css';
+import '../SearchResult/histogram.css';
+import '../SearchResult/document.css';
 import Histograms from './Components/Histograms/Histograms';
 import Documents from './Components/Documents/Documents';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import SwiperCore from 'swiper';
 
 const SearchResult = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const swiperRef = useRef<SwiperCore | null>(null);
 
   useEffect(() => {
     if (!state) {
       navigate('/search');
     }
   }, [navigate, state]);
+
+  const handlePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
+    }
+  };
+
+  const handleNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
 
   return (
     <main className="main">
@@ -31,18 +47,16 @@ const SearchResult = () => {
       </div>
       <div className="summary">
         <h2>Общая сводка</h2>
-        <p className="underTitle">Найдено 4 221 вариантов</p>
+        {/* <p className="underTitle">Найдено 4 221 вариантов</p> */}
         <div className="summaryContainer">
-          <img src="./arrow1.svg" alt="arrow1" />
-
+          <img src="./arrow1.svg" alt="arrow1" className='prevButton' onClick={handlePrev} />
           <div className="summaryInfoTitle">
             <p>Период</p>
             <p>Всего</p>
             <p>Риски</p>
           </div>
-          <Histograms />
-
-          <img src="./arrow2.svg" alt="arrow2" />
+          <Histograms ref={swiperRef} />
+          <img src="./arrow2.svg" alt="arrow2" className='nextButton' onClick={handleNext} />
         </div>
       </div>
       <h3>Список документов</h3>

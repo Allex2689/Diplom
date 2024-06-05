@@ -1,4 +1,6 @@
 import './home.css';
+import './Components/Cards/cards.css';
+import './Components/Tariffs/tariffs.css';
 import Cards from './Components/Cards/Cards';
 import Tariffs from './Components/Tariffs/Tariffs';
 
@@ -22,11 +24,7 @@ const HomePage = () => {
       </div>
       <div className="homeInfo">
         <h1>Почему именно мы</h1>
-        {/* <img src="./arrow1.svg" alt="arrow1" className="arrow1" />
-                <img src="./arrow2.svg" alt="arrow2" className="arrow2" /> */}
-        {/*<div className="infoCards">*/}
         <Cards />
-        {/*</div>*/}
       </div>
       <div className="imgContainer">
         <img src="./HomeImg.svg" alt="HomeImg" className="HomeImg" />
