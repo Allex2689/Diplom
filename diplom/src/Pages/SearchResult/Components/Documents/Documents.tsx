@@ -3,10 +3,12 @@ import { DocumentCard } from './DocumentCard';
 import { Document } from './types';
 import { useDocumentsData } from '../../hooks/useDocumentsData';
 
-function Documents() {
-  const { data, isLoading, fetchData } = useDocumentsData();
+interface DocumentsProps {
+  visibleCount: number;
+}
 
-  console.log(data)
+function Documents({ visibleCount }: DocumentsProps) {
+  const { data, isLoading, fetchData } = useDocumentsData();
 
   useEffect(() => {
     fetchData();
@@ -22,7 +24,7 @@ function Documents() {
 
   return (
     <>
-      {data.map((document: Document) => (
+      {data.slice(0, visibleCount).map((document: Document) => (
         <DocumentCard key={document.id} document={document} />
       ))}
     </>

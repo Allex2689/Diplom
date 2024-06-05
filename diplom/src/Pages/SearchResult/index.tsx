@@ -1,16 +1,18 @@
+import React, { useEffect, useState } from 'react';
 import '../SearchResult/index.css';
 import '../SearchResult/histogram.css';
 import '../SearchResult/document.css';
 import Histograms from './Components/Histograms/Histograms';
 import Documents from './Components/Documents/Documents';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import SwiperCore from 'swiper';
 
 const SearchResult = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const swiperRef = useRef<SwiperCore | null>(null);
+  const [visibleCount, setVisibleCount] = useState(10);
 
   useEffect(() => {
     if (!state) {
@@ -30,6 +32,10 @@ const SearchResult = () => {
     }
   };
 
+  const handleShowMoreDocuments = () => {
+    setVisibleCount((prevCount) => prevCount + 10);
+  };
+
   return (
     <main className="main">
       <div className="title1">
@@ -47,7 +53,6 @@ const SearchResult = () => {
       </div>
       <div className="summary">
         <h2>Общая сводка</h2>
-        {/* <p className="underTitle">Найдено 4 221 вариантов</p> */}
         <div className="summaryContainer">
           <img src="./arrow1.svg" alt="arrow1" className='prevButton' onClick={handlePrev} />
           <div className="summaryInfoTitle">
@@ -61,9 +66,9 @@ const SearchResult = () => {
       </div>
       <h3>Список документов</h3>
       <div className="newsContainer">
-        <Documents />
+        <Documents visibleCount={visibleCount} />
       </div>
-      <button className="bottomButton">Показать больше</button>
+      <button className="bottomButton" onClick={handleShowMoreDocuments}>Показать больше</button>
     </main>
   );
 };

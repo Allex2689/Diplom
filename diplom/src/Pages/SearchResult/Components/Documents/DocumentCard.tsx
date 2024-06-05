@@ -1,7 +1,6 @@
+import React from 'react';
 import { Document } from './types';
 import DOMPurify from 'dompurify';
-// import ReactHtmlParser from "react-html-parser";
-// import { Buffer } from 'buffer';
 import { xml2json } from 'xml-js';
 
 interface DocumentCardProps {
@@ -27,7 +26,6 @@ function getNoun(num: number, one: string, two: string, five: string) {
     return five;
 }
 
-
 function truncateWords(text: string, maxWords: number): string {
     const words = text.split(' ');
     if (words.length > maxWords) {
@@ -36,20 +34,19 @@ function truncateWords(text: string, maxWords: number): string {
     return text;
 }
 
-
 export const DocumentCard = ({ document }: DocumentCardProps) => {
-    // const sanitizedMarkup = DOMPurify.sanitize(document.content.markup);
-    const truncatedMarkup = truncateWords(document.content.markup, 100); // Здесь 100 - это максимальное количество слов
+    const truncatedMarkup = truncateWords(document.content.markup, 100);
     const sanitizedMarkup = DOMPurify.sanitize(truncatedMarkup);
-
-
-    // const jsonResult = xml2json(document.content.markup, { compact: true, spaces: 2 });
-    // const json = JSON.parse(jsonResult).scandoc;
-
 
     
 
-    console.log("Markup content:", document.content.markup);
+    // const jsonResult = xml2json(truncatedMarkup, { compact: true, spaces: 2 });
+    // const json = JSON.parse(jsonResult).scandoc
+    
+
+    const handleReadMoreClick = () => {
+        window.location.href = document.url;
+    };
 
     return (
         <div className={`news`}>
@@ -63,9 +60,9 @@ export const DocumentCard = ({ document }: DocumentCardProps) => {
                 {document.attributes.isTechNews && 'isTechNews'}
                 {document.attributes.isDigest && 'isDigest'}
             </p>
-            <div dangerouslySetInnerHTML={{ __html: sanitizedMarkup }}></div>
+            <div dangerouslySetInnerHTML={{ __html: sanitizedMarkup }} className='documentText'></div>
             <div className="buttonWithText">
-                <button>Читать далее</button>
+                <button onClick={handleReadMoreClick}>Читать далее</button>
                 <p>{document.attributes.wordCount} {getNoun(document.attributes.wordCount, 'слово', 'слова', 'слов')}</p>
             </div>
         </div>
