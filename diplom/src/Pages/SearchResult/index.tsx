@@ -54,21 +54,23 @@ const SearchResult = () => {
       <div className="summary">
         <h2>Общая сводка</h2>
         <div className="summaryContainer">
-          <img src="./arrow1.svg" alt="arrow1" className='prevButton' onClick={handlePrev} />
+          <img src="./arrow1.svg" alt="arrow1" className="prevButton" onClick={handlePrev} />
           <div className="summaryInfoTitle">
             <p>Период</p>
             <p>Всего</p>
             <p>Риски</p>
           </div>
           <Histograms ref={swiperRef} />
-          <img src="./arrow2.svg" alt="arrow2" className='nextButton' onClick={handleNext} />
+          <img src="./arrow2.svg" alt="arrow2" className="nextButton" onClick={handleNext} />
         </div>
       </div>
       <h3>Список документов</h3>
       <div className="newsContainer">
         <Documents visibleCount={visibleCount} />
       </div>
-      <button className="bottomButton" onClick={handleShowMoreDocuments}>Показать больше</button>
+      <button className="bottomButton" onClick={handleShowMoreDocuments}>
+        Показать больше
+      </button>
     </main>
   );
 };

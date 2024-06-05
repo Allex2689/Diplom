@@ -9,7 +9,6 @@ const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
     return null;
   }
 
-
   return (
     <>
       <div className="userInfo">

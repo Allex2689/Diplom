@@ -9,54 +9,133 @@
 }
 
 .newsContainer {
-    padding: 58px 60px 38px 60px;
+  padding: 58px 60px 38px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 38px;
+}
+
+.topInfo {
+  display: flex;
+  align-items: center;
+}
+.topInfo a {
+  margin-left: 14px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: grey;
+}
+
+.news {
+  box-shadow: 0px 0px 20px 0px #00000033;
+  padding: 19px 30px 35px;
+}
+.news h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  margin: 24px 0 14px 0;
+}
+
+.underTitleText {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  background-color: orange;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 4px 11px 3px 14px;
+  color: black !important;
+}
+
+.documentText {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: grey;
+}
+
+.news button {
+  background-color: #7ce3e1;
+  border-radius: 5px;
+  border: none;
+  padding: 14px 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttonWithText {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+.buttonWithText p {
+  position: relative;
+  top: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .newsContainer {
+    padding: 30px 15px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    
-    gap: 38px;
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
   }
-  
+
   .topInfo {
     display: flex;
     align-items: center;
   }
+
   .topInfo a {
     margin-left: 14px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: grey;
   }
-  
+
   .news {
     box-shadow: 0px 0px 20px 0px #00000033;
-    padding: 19px 30px 35px;
+    padding: 19px 14px 18px 24px;
+    border-radius: 10px;
   }
+
   .news h4 {
     font-family: 'Inter', sans-serif;
     font-weight: 500;
-    font-size: 26px;
-    margin: 24px 0 14px 0;
+    font-size: 19px;
+    margin: 21px 0 20px 0;
   }
-  
+
   .underTitleText {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     background-color: orange;
     border-radius: 5px;
     display: inline-block;
     padding: 4px 11px 3px 14px;
     color: black !important;
   }
-  
-  .documentText {
+
+  .newsImg {
+    width: 300px;
+    height: 160px;
+  }
+
+  .news p {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     color: grey;
   }
-  
+
   .news button {
     background-color: #7ce3e1;
     border-radius: 5px;
@@ -67,183 +146,102 @@
     font-size: 16px;
     cursor: pointer;
   }
-  
+
   .buttonWithText {
     display: flex;
     justify-content: space-between;
     margin-top: 32px;
   }
+
   .buttonWithText p {
     position: relative;
     top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 800px) {
+  .newsContainer {
+    padding: 30px 15px;
+    display: grid;
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+    width: 90%;
   }
 
+  .topInfo {
+    display: flex;
+    align-items: center;
+  }
 
-  @media (min-width: 320px) and (max-width: 480px){
-    .newsContainer {
-        padding: 30px 15px;
-        display: grid;
-        grid-template-columns: none;
-        grid-template-rows: 1fr 1fr;
-        width: 90%;
-      }
-    
-      .topInfo {
-        display: flex;
-        align-items: center;
-      }
-    
-      .topInfo a {
-        margin-left: 14px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        color: grey;
-      }
-    
-      .news {
-        box-shadow: 0px 0px 20px 0px #00000033;
-        padding: 19px 14px 18px 24px;
-        border-radius: 10px;
-      }
-    
-      .news h4 {
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        font-size: 19px;
-        margin: 21px 0 20px 0;
-      }
-    
-      .underTitleText {
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 10px;
-        background-color: orange;
-        border-radius: 5px;
-        display: inline-block;
-        padding: 4px 11px 3px 14px;
-        color: black !important;
-      }
-    
-      .newsImg {
-        width: 300px;
-        height: 160px;
-      }
-    
-      .news p {
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        color: grey;
-      }
-    
-      .news button {
-        background-color: #7ce3e1;
-        border-radius: 5px;
-        border: none;
-        padding: 14px 30px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    
-      .buttonWithText {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 32px;
-      }
-    
-      .buttonWithText p {
-        position: relative;
-        top: 20px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-      }
+  .topInfo a {
+    margin-left: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: grey;
   }
-  
-  
-  @media (min-width: 480px) and (max-width: 800px){
-    .newsContainer {
-        padding: 30px 15px;
-        display: grid;
-        grid-template-columns: none;
-        grid-template-rows: 1fr 1fr;
-        width: 90%;
-      }
-    
-      .topInfo {
-        display: flex;
-        align-items: center;
-      }
-    
-      .topInfo a {
-        margin-left: 14px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        color: grey;
-      }
-    
-      .news {
-        box-shadow: 0px 0px 20px 0px #00000033;
-        padding: 19px 14px 18px 24px;
-        border-radius: 10px;
-      }
-    
-      .news h4 {
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        font-size: 19px;
-        margin: 21px 0 20px 0;
-      }
-    
-      .underTitleText {
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 10px;
-        background-color: orange;
-        border-radius: 5px;
-        display: inline-block;
-        padding: 4px 11px 3px 14px;
-        color: black !important;
-      }
-    
-      .newsImg {
-        width: 300px;
-        height: 160px;
-      }
-    
-      .news p {
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 12px;
-        color: grey;
-      }
-    
-      .news button {
-        background-color: #7ce3e1;
-        border-radius: 5px;
-        border: none;
-        padding: 14px 30px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        cursor: pointer;
-      }
-    
-      .buttonWithText {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 32px;
-      }
-    
-      .buttonWithText p {
-        position: relative;
-        top: 20px;
-        font-family: 'Inter', sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-      }
+
+  .news {
+    box-shadow: 0px 0px 20px 0px #00000033;
+    padding: 19px 14px 18px 24px;
+    border-radius: 10px;
   }
+
+  .news h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 21px 0 20px 0;
+  }
+
+  .underTitleText {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    background-color: orange;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 4px 11px 3px 14px;
+    color: black !important;
+  }
+
+  .newsImg {
+    width: 300px;
+    height: 160px;
+  }
+
+  .news p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: grey;
+  }
+
+  .news button {
+    background-color: #7ce3e1;
+    border-radius: 5px;
+    border: none;
+    padding: 14px 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .buttonWithText {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+
+  .buttonWithText p {
+    position: relative;
+    top: 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+}

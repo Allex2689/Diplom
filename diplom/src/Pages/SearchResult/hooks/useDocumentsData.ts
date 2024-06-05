@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Document } from "../Components/Documents/types";
+import { Document } from '../Components/Documents/types';
 
 interface ObjectSearchItem {
   encodedId: string;
@@ -32,7 +32,6 @@ interface LocationState {
 }
 
 export const useDocumentsData = () => {
-
   const [data, setData] = useState<Document[]>([]);
   const [isLoading, setLoading] = useState(false);
 
@@ -129,7 +128,8 @@ export const useDocumentsData = () => {
         const ids = responseData.items.map((item: ObjectSearchItem) => item.encodedId);
         fetchDocuments(ids);
       })
-      .catch((err) => console.error(err)).finally(() => setLoading(false));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   };
 
   return {

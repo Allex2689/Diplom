@@ -7,7 +7,6 @@ import styles1 from '../../searchResult.module.css';
 import { useLocation } from 'react-router-dom';
 import MOBILE_SCREEN_MAX_WIDTH from '../../../Home/Components/Cards/constans';
 
-
 interface Info {
   period: string;
   total: number;

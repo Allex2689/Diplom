@@ -15,11 +15,11 @@ function Documents({ visibleCount }: DocumentsProps) {
   }, []);
 
   if (isLoading) {
-    return <div>Загрузка...</div>
+    return <div>Загрузка...</div>;
   }
 
   if (!data?.length) {
-    return <div>Документов нет</div>
+    return <div>Документов нет</div>;
   }
 
   return (

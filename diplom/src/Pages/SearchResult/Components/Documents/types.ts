@@ -1,4 +1,4 @@
-import {DetailedHTMLProps, HTMLAttributes} from "react";
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 interface Source {
   name: string;
@@ -20,5 +20,5 @@ export interface Document {
   };
   content: {
     markup: string;
-  }
+  };
 }

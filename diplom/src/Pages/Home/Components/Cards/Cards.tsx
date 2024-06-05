@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import  MOBILE_SCREEN_MAX_WIDTH from './constans';
+import MOBILE_SCREEN_MAX_WIDTH from './constans';
 import ArrowPrev from '../../../../assets/images/arrow1.svg';
 import ArrowNext from '../../../../assets/images/arrow2.svg';
 import { Rate, CardsProps } from '../Cards/types';
@@ -47,7 +47,8 @@ function Cards() {
         className="swiper-home"
         spaceBetween={10}
         slidesPerView={width < MOBILE_SCREEN_MAX_WIDTH ? 1 : 3}
-        onSwiper={setSwiperRef}>
+        onSwiper={setSwiperRef}
+      >
         {rates.map((rate) => (
           <SwiperSlide key={rate.code}>
             <Card rate={rate} />
